@@ -26,7 +26,7 @@ if __name__ == "__main__":
     As per our assumption, on average 28.4% of students would get admission to UCLA."""
     
     print("\n\nVisualize the dataset to see some patterns:")
-    scatter_plot(df,"PREDICTING CANCES OF ADMISSION AT UCLA-Repo\\reports\\Scatter_Plot1.png")
+    scatter_plot(df,"D:\\ALGONQUIN BISI\\GITHUB PROJECTS\\Predicting-Chances-of-Admission-at-UCLA\\PREDICTING CANCES OF ADMISSION AT UCLA-Repo\\reports\\Scatter_Plot1.png")
     
     cleaned_dataset = prepare_data(cleaned_dataset)
     
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     MLP = train_MLP(X_train, y_train)
 
     # Save the trained model
-    with open('PREDICTING CANCES OF ADMISSION AT UCLA-Repo\\models\\MLP_classifier.pkl', 'wb') as f:
+    with open('D:\\ALGONQUIN BISI\\GITHUB PROJECTS\\Predicting-Chances-of-Admission-at-UCLA\\PREDICTING CANCES OF ADMISSION AT UCLA-Repo\\models\\MLP_classifier.pkl', 'wb') as f:
         pickle.dump(MLP, f)
 
     MLP_train_mae, MLP_test_mae, MLP_train_cf, MLP_test_cf = run_and_evaluate_model(MLP, X_train, X_test, y_train, y_test)
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     
     # Plotting loss curve
     loss_values = MLP.loss_curve_
-    loss_curve(loss_values,"PREDICTING CANCES OF ADMISSION AT UCLA-Repo\\reports\\loss_curve.png")
+    loss_curve(loss_values,"D:\\ALGONQUIN BISI\\GITHUB PROJECTS\\Predicting-Chances-of-Admission-at-UCLA\\PREDICTING CANCES OF ADMISSION AT UCLA-Repo\\reports\\loss_curve.png")
     
     print("Using Grid Search CV = 10 to find good parameters:")
     grid = gridSearchCV(MLP, x_scaled, cleaned_dataset['Admit_Chance'],10)
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     
     # Save the best model to a file
     best_logistic_regression_model_filename = 'best_model_MLP.pkl'
-    with open("PREDICTING CANCES OF ADMISSION AT UCLA-Repo\\models\\" + best_logistic_regression_model_filename, 'wb') as file:
+    with open("D:\\ALGONQUIN BISI\\GITHUB PROJECTS\\Predicting-Chances-of-Admission-at-UCLA\\PREDICTING CANCES OF ADMISSION AT UCLA-Repo\\models\\" + best_logistic_regression_model_filename, 'wb') as file:
         pickle.dump(grid.best_estimator_, file)
     print(f"Saved MLP best model as '{best_logistic_regression_model_filename}'")
     
